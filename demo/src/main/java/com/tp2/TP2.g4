@@ -1,4 +1,4 @@
-/* Alumnos: Macarena Parisi + Gaston Ramirez
+/* Alumnos: JOHANA TESTA
  * Trabajo Practico 2 - TC
 * El programa a desarrollar tiene como objetivo tomar un archivo de código
 * fuente en una versión reducida del lenguaje C y generar como salida el Árbol Sintáctico (ANTLR).

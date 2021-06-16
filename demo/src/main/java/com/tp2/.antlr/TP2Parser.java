@@ -1,6 +1,4 @@
-//
 // Generated from c:\Users\USUARIO\Documents\TP2\demo\src\main\java\com\tp2\TP2.g4 by ANTLR 4.8
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
