@@ -16,44 +16,45 @@ public class TP2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       try{            
+       
+        try{            
             
-        String testCasePath = "/Users/USUARIO/Documents/TP2/demo/src/testCases";
-        // create a CharStream that reads from file
-        ANTLRFileStream input = new ANTLRFileStream(testCasePath+ "prueba.c");
+            CharStream input = CharStreams.fromFileName("/Users/USUARIO/Documents/TP2/demo/src/main/java/com/tp2/ejemplo.txt");
 
-        // create a lexer that feeds off of input CharStream
-        TP2Lexer lexer = new TP2Lexer(input);
-
-        // create a buffer of tokens pulled from the lexer
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-
-        // create a parser that feeds off the tokens buffer
-        TP2Parser parser = new TP2Parser(tokens);
-        
-        // Creo el objeto que tiene los Listeners
-//        reglasANTLRBaseListener escucha = new reglasANTLRBaseListener();
-        TP2BaseListener escucha = new TP2CustomListener();
-        
-        // Conecto el objeto con Listeners al parser
-        parser.addParseListener(escucha);
-        
-        // Solicito al parser que comience indicando una regla gramatical
-        // En este caso la regla es el simbolo inicial
-        ParseTree tree = parser.prog();
-        
-//        // Imprime estadisticas
-//        System.out.println(escucha);
-        // Imprime el arbol obtenido
-        System.out.println("ARBOL SINTÁCTICO: " + tree.toStringTree(parser));         
+    
+            // create a lexer that feeds off of input CharStream
+            TP2Lexer lexer = new TP2Lexer(input);
+    
+            // create a buffer of tokens pulled from the lexer
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+    
+            // create a parser that feeds off the tokens buffer
+            TP2Parser parser = new TP2Parser(tokens);
+            
+            // Creo el objeto que tiene los Listeners
+    //        reglasANTLRBaseListener escucha = new reglasANTLRBaseListener();
+            TP2BaseListener escucha = new TP2CustomListener();
+            
+            // Conecto el objeto con Listeners al parser
+            parser.addParseListener(escucha);
+            
+            // Solicito al parser que comience indicando una regla gramatical
+            // En este caso la regla es el simbolo inicial
+            ParseTree tree = parser.prog();
+            
+    //        // Imprime estadisticas
+    //        System.out.println(escucha);
+            // Imprime el arbol obtenido
+            System.out.println("ARBOL SINTÁCTICO: " + tree.toStringTree(parser));         
+            }
+            catch(Exception e)
+            {
+                System.out.println("Error");
+    
+                //cualquier error, capturamos la exception.   
+                e.printStackTrace();
+            }
         }
-        catch(Exception e)
-        {
-            System.out.println("Error");
-
-            //cualquier error, capturamos la exception.   
-            e.printStackTrace();
-        }
-    }
+        
     
 }
